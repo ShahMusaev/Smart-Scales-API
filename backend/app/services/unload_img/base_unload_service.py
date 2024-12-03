@@ -1,0 +1,6 @@
+class BaseUnloadService:
+    def __init__(self):
+        ...
+
+    async def unload_img(self, img_base64: str, img_name: str):
+        ...

@@ -1,0 +1,11 @@
+.idea
+.vscode
+.env
+postgres
+test
+venv
+devopd
+test
+imgs
+node_modules
+.next
