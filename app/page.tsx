@@ -24,7 +24,7 @@ interface Product {
   protein: number
   fats: number
   carbs: number
-  time: string
+  date: string
   image: string
   weight: number
   recommends: any
@@ -44,7 +44,7 @@ export default function Page() {
     setLoading(true)
 
     try {
-      const response = await fetch(`http://localhost:8000/api/products?date=${date.toISOString().split('T')[0]}`)
+      const response = await fetch(`/api/products?date=${date.toISOString().split('T')[0]}`)
       if (response.ok) {
         const data = await response.json()
         setProducts(data.products)
@@ -60,7 +60,7 @@ export default function Page() {
 
   const updateProduct = async (updatedProduct: Product) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/products?date=${selectedDay.toISOString().split('T')[0]}/${updatedProduct.name}`, {
+      const response = await fetch(`/api/products?date=${selectedDay.toISOString().split('T')[0]}/${updatedProduct.name}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -195,7 +195,7 @@ export default function Page() {
                   <div className="flex-1">
                     <div className="flex justify-between items-start">
                       <h3 className="font-semibold">{item.name}</h3>
-                      <span className="text-gray-500 text-sm">{item.time}</span>
+                      <span className="text-gray-500 text-sm">{item.date.split('T')[1]}</span>
                     </div>
                     <p className="text-lg font-semibold mb-1">{item.calories} ккал</p>
                     <div className="flex gap-2 text-sm">

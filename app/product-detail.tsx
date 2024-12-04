@@ -11,7 +11,7 @@ interface Product {
     protein: number
     fats: number
     carbs: number
-    time: string
+    date: string
     image: string
     weight: number
     recommends: string[]
