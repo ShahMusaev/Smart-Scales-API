@@ -9,3 +9,4 @@ test
 imgs
 node_modules
 .next
+__pycache__

@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 from backend.app.routes import products, recognize
 
-app = FastAPI()
+app = FastAPI(docs_url="/api/docs", title="Smart Scales API")
 
 origins = ["*"]
 
