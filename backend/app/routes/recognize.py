@@ -48,9 +48,9 @@ async def recognizing_product(
         id=product_id,
         name=product.name,
         calories=int(product.kkal * (weight / 100)),
-        protein=product.detail.proteins * (weight / 100),
-        fats=product.detail.fats * (weight / 100),
-        carbs=product.detail.carbohydrates * (weight / 100),
+        protein=round(product.detail.proteins * (weight / 100), 2),
+        fats=round(product.detail.fats * (weight / 100), 2),
+        carbs=round(product.detail.carbohydrates * (weight / 100), 2),
         date=rec_product_req.date,
         image=img_url,
         weight=rec_product_req.weight,
@@ -59,13 +59,12 @@ async def recognizing_product(
 
     await add_user_product(user_id, product_db)
 
-
     return RecognizingProductRes(
         name=product.name,
         calories=int(product.kkal * (weight / 100)),
-        protein=product.detail.proteins * (weight / 100),
-        fats=product.detail.fats * (weight / 100),
-        carbs=product.detail.carbohydrates * (weight / 100),
+        protein=round(product.detail.proteins * (weight / 100), 2),
+        fats=round(product.detail.fats * (weight / 100), 2),
+        carbs=round(product.detail.carbohydrates * (weight / 100), 2),
         date=rec_product_req.date,
         image=img_url,
         weight=rec_product_req.weight
